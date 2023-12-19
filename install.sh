@@ -1,3 +1,8 @@
 #!/bin/sh
 
-ln -s .wezterm.lua ~/.wezterm.lua
+script_dir="$(
+    cd "$(dirname "$0")" || exit
+    pwd
+)"
+
+ln -nfs "$script_dir/.wezterm.lua" ~
