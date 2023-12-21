@@ -9,6 +9,7 @@ local is_linux = wezterm.target_triple == 'x86_64-unknown-linux-gnu'
 -- Font
 config.font = wezterm.font('Myrica M')
 config.font_size = 13
+config.warn_about_missing_glyphs = false
 
 -- Window
 config.window_close_confirmation = 'NeverPrompt'
