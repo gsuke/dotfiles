@@ -8,25 +8,26 @@ local is_linux = wezterm.target_triple == 'x86_64-unknown-linux-gnu'
 
 -- Font
 config.font = wezterm.font('Myrica M')
-config.font_size = 14
+config.font_size = 13
 
 -- Window
 config.window_close_confirmation = 'NeverPrompt'
-config.initial_cols = 120
-config.initial_rows = 40
+config.initial_cols = 90
+config.initial_rows = 30
 
--- Key
-config.keys = {
-    { mods = 'CTRL|SHIFT', key = 't', action = act.ShowLauncher },
-    { mods = 'CTRL|SHIFT', key = 'w', action = act { CloseCurrentTab = { confirm = false } } }
-}
-
--- Linux
 if is_linux then
+    config.keys = {
+        { mods = 'CTRL|SHIFT', key = 't', action = act.SpawnTab 'CurrentPaneDomain' },
+        { mods = 'CTRL|SHIFT', key = 'w', action = act { CloseCurrentTab = { confirm = false } } }
+    }
 end
 
--- Windows
 if is_windows then
+    config.keys = {
+        { mods = 'CTRL|SHIFT', key = 't', action = act.ShowLauncher },
+        { mods = 'CTRL|SHIFT', key = 'w', action = act { CloseCurrentTab = { confirm = false } } }
+    }
+
     local gitbash_path = 'C:/Program Files/Git/bin/bash.exe'
 
     config.default_prog = { gitbash_path, '-l' }
