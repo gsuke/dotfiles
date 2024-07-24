@@ -16,6 +16,8 @@ config.window_close_confirmation = 'NeverPrompt'
 config.initial_cols = 90
 config.initial_rows = 30
 
+config.front_end = 'Software'
+
 if is_linux then
     config.keys = {
         { mods = 'CTRL|SHIFT', key = 't', action = act.SpawnTab 'CurrentPaneDomain' },
@@ -31,10 +33,10 @@ if is_windows then
 
     local gitbash_path = 'C:/Program Files/Git/bin/bash.exe'
 
-    config.default_prog = { gitbash_path, '-l' }
+    config.default_prog = { 'pwsh', '-l' }
     config.launch_menu = {
-        { label = 'Git Bash',          args = { gitbash_path } },
         { label = 'PowerShell (Core)', args = { 'pwsh' } },
+        { label = 'Git Bash',          args = { gitbash_path } },
         { label = 'Command Prompt',    args = { 'cmd' } },
         { label = 'WSL',               args = { 'wsl' } }
     }
