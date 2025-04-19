@@ -1,8 +1,11 @@
 #!/bin/sh
+set -eu
 
-script_dir="$(
-    cd "$(dirname "$0")" || exit
-    pwd
-)"
+script_dir=$(realpath "$(dirname "$0")")
+cd "$script_dir"
 
-ln -nfs "$script_dir/.wezterm.lua" ~
+for f in .??*; do
+    [ "$f" = ".git" ] && continue
+
+    ln -snfv "$script_dir/$f" ~/
+done

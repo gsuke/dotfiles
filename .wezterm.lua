@@ -17,12 +17,14 @@ config.initial_rows = 30
 config.front_end = 'Software'
 
 config.keys = {
-    { mods = 'CTRL|SHIFT', key = 'w',         action = act { CloseCurrentTab = { confirm = false } } }, -- タブを閉じる
-    { mods = 'CTRL|SHIFT', key = 'UpArrow',   action = act.ScrollByLine(-2) },                          -- 上スクロール
-    { mods = 'CTRL|SHIFT', key = 'DownArrow', action = act.ScrollByLine(2) },                           -- 下スクロール
+    { mods = 'CTRL|SHIFT', key = 'w',         action = act { CloseCurrentTab = { confirm = false } } },
+    { mods = 'CTRL|SHIFT', key = 'UpArrow',   action = act.ScrollByLine(-2) },
+    { mods = 'CTRL|SHIFT', key = 'DownArrow', action = act.ScrollByLine(2) },
 }
 
 if is_linux then
+    config.enable_wayland = false
+
     table.insert(config.keys, { mods = 'CTRL|SHIFT', key = 't', action = act.SpawnTab 'CurrentPaneDomain' })
 end
 
