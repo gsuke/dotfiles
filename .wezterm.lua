@@ -23,6 +23,7 @@ config.keys = {
 }
 
 if is_linux then
+    -- https://github.com/wezterm/wezterm/issues/5103
     config.enable_wayland = false
 
     table.insert(config.keys, { mods = 'CTRL|SHIFT', key = 't', action = act.SpawnTab 'CurrentPaneDomain' })
