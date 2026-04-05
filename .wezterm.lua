@@ -35,7 +35,7 @@ if is_windows then
     config.default_prog = { 'pwsh', '-l' }
     config.launch_menu = {
         { label = 'PowerShell (Core)', args = { 'pwsh' } },
-        { label = 'Git Bash',          args = { 'C:/Program Files/Git/bin/bash.exe' } },
+        { label = 'Git Bash',          args = { 'sh' } },
         { label = 'Command Prompt',    args = { 'cmd' } },
         { label = 'WSL',               args = { 'wsl' } }
     }
