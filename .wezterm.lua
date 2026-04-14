@@ -7,9 +7,14 @@ config.font = wezterm.font('Myrica M')
 config.font_size = 18
 
 -- Window
-config.window_close_confirmation = 'NeverPrompt'
 config.initial_cols = 90
 config.initial_rows = 30
+config.window_close_confirmation = 'NeverPrompt'
+config.window_decorations = 'INTEGRATED_BUTTONS'
+
+-- Decoration
+config.window_background_opacity = 0.85
+config.default_cursor_style = "BlinkingBar"
 
 config.keys = {
     { mods = 'CTRL|SHIFT', key = 't',         action = act.SpawnTab('CurrentPaneDomain') },
