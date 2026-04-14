@@ -2,43 +2,31 @@ local wezterm = require 'wezterm'
 local act = wezterm.action
 local config = wezterm.config_builder()
 
--- OS
-local is_windows = wezterm.target_triple == 'x86_64-pc-windows-msvc'
-local is_linux = wezterm.target_triple == 'x86_64-unknown-linux-gnu'
-
 -- Font
 config.font = wezterm.font('Myrica M')
-config.font_size = 13
+config.font_size = 18
 
 -- Window
 config.window_close_confirmation = 'NeverPrompt'
 config.initial_cols = 90
 config.initial_rows = 30
-config.front_end = 'Software'
 
 config.keys = {
-    { mods = 'CTRL|SHIFT', key = 'w',         action = act { CloseCurrentTab = { confirm = false } } },
+    { mods = 'CTRL|SHIFT', key = 't',         action = act.SpawnTab('CurrentPaneDomain') },
+    { mods = 'CTRL|SHIFT', key = 'w',         action = act.CloseCurrentTab({ confirm = false }) },
     { mods = 'CTRL|SHIFT', key = 'UpArrow',   action = act.ScrollByLine(-2) },
     { mods = 'CTRL|SHIFT', key = 'DownArrow', action = act.ScrollByLine(2) },
 }
 
-if is_linux then
+-- Linux
+if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
     -- https://github.com/wezterm/wezterm/issues/5103
     config.enable_wayland = false
-
-    table.insert(config.keys, { mods = 'CTRL|SHIFT', key = 't', action = act.SpawnTab 'CurrentPaneDomain' })
 end
 
-if is_windows then
-    table.insert(config.keys, { mods = 'CTRL|SHIFT', key = 't', action = act.ShowLauncher })
-
+-- Windows
+if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     config.default_prog = { 'pwsh', '-l' }
-    config.launch_menu = {
-        { label = 'PowerShell (Core)', args = { 'pwsh' } },
-        { label = 'Git Bash',          args = { 'sh' } },
-        { label = 'Command Prompt',    args = { 'cmd' } },
-        { label = 'WSL',               args = { 'wsl' } }
-    }
 end
 
 return config
