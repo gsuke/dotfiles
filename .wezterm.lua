@@ -3,14 +3,18 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 -- Font
-config.font = wezterm.font('Myrica M')
+local font = 'Myrica M'
+config.font = wezterm.font(font)
 config.font_size = 18
+config.window_frame = {
+    font = wezterm.font(font),
+    font_size = 16
+}
 
 -- Window
 config.initial_cols = 90
 config.initial_rows = 30
 config.window_close_confirmation = 'NeverPrompt'
-config.window_decorations = 'INTEGRATED_BUTTONS'
 
 -- Decoration
 config.window_background_opacity = 0.85
