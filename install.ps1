@@ -1,4 +1,3 @@
 #requires –RunAsAdministrator
 
-# TODO: multiple file support
-New-Item -Force -ItemType HardLink -Path $HOME\.wezterm.lua -Value .wezterm.lua
+New-Item -Force -ItemType SymbolicLink -Path $HOME\.wezterm.lua -Target (Get-Item '.\.wezterm.lua').FullName
