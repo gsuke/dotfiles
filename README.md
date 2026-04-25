@@ -1,5 +1,12 @@
 # dotfiles
 
+## Usage
+
+* Linux: `./install.sh`
+* Windows: 管理者権限で `.\install.ps1`
+
+その後、 `~/.bash_private` を作成する。
+
 ## Dependencies
 
 * [WezTerm](https://wezterm.org/)
