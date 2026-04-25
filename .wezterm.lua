@@ -15,6 +15,7 @@ config.window_frame = {
 config.initial_cols = 90
 config.initial_rows = 30
 config.window_close_confirmation = 'NeverPrompt'
+config.use_ime = true
 
 -- Decoration
 config.window_background_opacity = 0.85
