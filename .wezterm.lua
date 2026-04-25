@@ -36,7 +36,11 @@ end
 
 -- Windows
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-    config.default_prog = { 'pwsh', '-l' }
+    config.default_prog = { 'wsl' }
+    table.insert(
+        config.keys,
+        { mods = 'CTRL|SHIFT', key = 'p', action = act.SpawnCommandInNewTab({ args = { 'pwsh' } }) }
+    )
 end
 
 return config
