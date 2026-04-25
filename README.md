@@ -2,6 +2,7 @@
 
 ## Dependencies
 
-* WezTerm
+* [WezTerm](https://wezterm.org/)
 * Bash
-* Starship
+* [Starship](https://starship.rs/)
+* [mise](https://mise.jdx.dev/)
