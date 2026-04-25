@@ -8,5 +8,5 @@ alias ls='ls --color=auto' grep='grep --color=auto'
 eval "$(starship init bash)"
 
 # パス
-eval "$(mise activate bash)"
 export PATH="$PATH:~/.local/bin"
+eval "$(mise activate bash)"
