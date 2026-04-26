@@ -8,9 +8,9 @@
 * [mise](https://mise.jdx.dev/)
   * Arch Linux: `paru -S mise`
   * Windows: `scoop install mise`
-* [WezTerm](https://wezterm.org/)
-  * Arch Linux: `paru -S wezterm`
-  * Windows: <https://wezterm.org/install/windows.html>
+* [WezTerm](https://wezterm.org/) - Nightly
+  * Arch Linux: `paru -S wezterm-nightly-bin`
+  * Windows: <https://wezterm.org/install/windows.html> - Nightly Windows (setup.exe)
 
 ## Usage
 

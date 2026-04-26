@@ -18,14 +18,17 @@ config.window_close_confirmation = 'NeverPrompt'
 config.use_ime = true
 
 -- Decoration
-config.window_background_opacity = 0.85
 config.default_cursor_style = "BlinkingBar"
+config.window_background_opacity = 0.85
 
 config.keys = {
     { mods = 'CTRL|SHIFT', key = 't',         action = act.SpawnTab('CurrentPaneDomain') },
     { mods = 'CTRL|SHIFT', key = 'w',         action = act.CloseCurrentTab({ confirm = false }) },
     { mods = 'CTRL|SHIFT', key = 'UpArrow',   action = act.ScrollByLine(-2) },
     { mods = 'CTRL|SHIFT', key = 'DownArrow', action = act.ScrollByLine(2) },
+
+    -- WSLで~が入力されてしまう問題に対処
+    { mods = '',           key = 'F14',       action = act.SendString('') },
 }
 
 -- Linux
