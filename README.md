@@ -12,17 +12,18 @@ cd dotfiles
 . ~/.bashrc
 ```
 
-Windowsの場合、PowerShell管理者権限で `.\install.ps1`
+Windowsの場合 `gsudo .\install.ps1` (管理者権限が必要)
 
 その後、 `~/.bash_private` を作成する。
 
 ## Dependencies
 
-* [WezTerm](https://wezterm.org/)
-  * Arch Linux: `paru -S wezterm`
-  * Windows: <https://wezterm.org/install/windows.html>
-* Bash
-* [Starship](https://starship.rs/): `paru -S starship`
+* [Starship](https://starship.rs/)
+  * Arch Linux: `paru -S starship ttf-nerd-fonts-symbols-mono`
+  * Windows: `scoop install starship`
 * [mise](https://mise.jdx.dev/)
   * Arch Linux: `paru -S mise`
   * Windows: `scoop install mise`
+* [WezTerm](https://wezterm.org/)
+  * Arch Linux: `paru -S wezterm`
+  * Windows: <https://wezterm.org/install/windows.html>
