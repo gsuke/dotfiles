@@ -1,27 +1,27 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
-local config = wezterm.config_builder()
+local c = wezterm.config_builder()
 
 -- Font
 local font = 'Myrica M'
-config.font = wezterm.font(font)
-config.font_size = 18
-config.window_frame = {
+c.font = wezterm.font(font)
+c.font_size = 18
+c.window_frame = {
     font = wezterm.font(font),
     font_size = 16
 }
 
 -- Window
-config.initial_cols = 90
-config.initial_rows = 30
-config.window_close_confirmation = 'NeverPrompt'
-config.use_ime = true
+c.initial_cols = 90
+c.initial_rows = 30
+c.window_close_confirmation = 'NeverPrompt'
+c.use_ime = true
 
 -- Decoration
-config.default_cursor_style = "BlinkingBar"
-config.window_background_opacity = 0.85
+c.default_cursor_style = "BlinkingBar"
+c.window_background_opacity = 0.85
 
-config.keys = {
+c.keys = {
     { mods = 'CTRL|SHIFT', key = 't',         action = act.SpawnTab('CurrentPaneDomain') },
     { mods = 'CTRL|SHIFT', key = 'w',         action = act.CloseCurrentTab({ confirm = false }) },
     { mods = 'CTRL|SHIFT', key = 'UpArrow',   action = act.ScrollByLine(-2) },
@@ -32,18 +32,15 @@ config.keys = {
 }
 
 -- Linux
-if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
-    -- https://github.com/wezterm/wezterm/issues/5103
-    config.enable_wayland = false
-end
+c.enable_wayland = false -- https://github.com/wezterm/wezterm/issues/5103
 
 -- Windows
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
-    config.default_prog = { 'wsl' }
+    c.default_prog = { 'wsl' }
     table.insert(
-        config.keys,
+        c.keys,
         { mods = 'CTRL|SHIFT', key = 'p', action = act.SpawnCommandInNewTab({ args = { 'pwsh' } }) }
     )
 end
 
-return config
+return c
