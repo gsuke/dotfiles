@@ -24,5 +24,3 @@ cd dotfiles
 ```
 
 Windowsの場合 `gsudo .\install.ps1` (管理者権限が必要)
-
-その後、 `~/.bash_private` を作成する。

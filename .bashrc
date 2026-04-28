@@ -13,7 +13,3 @@ alias ll='ls -lahF --group-directories-first'
 # パス
 export PATH="$PATH:~/.local/bin"
 eval "$(mise activate bash)"
-
-if [ -f ~/.bash_private ]; then
-    . ~/.bash_private
-fi
