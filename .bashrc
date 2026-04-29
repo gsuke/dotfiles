@@ -9,6 +9,7 @@ eval "$(starship init bash)"
 
 # エイリアス
 alias ll='ls -lahF --group-directories-first'
+alias ..='cd ..'
 
 # パス
 export PATH="$PATH:~/.local/bin"
