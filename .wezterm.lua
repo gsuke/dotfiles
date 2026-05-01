@@ -23,6 +23,7 @@ c.keys = {
     { mods = "CTRL|SHIFT", key = "DownArrow", action = act.ScrollByLine(2) },
 
     -- WSLで~が入力されてしまう問題に対処
+    { mods = "",           key = "F13",       action = act.SendString("") },
     { mods = "",           key = "F14",       action = act.SendString("") },
 }
 
