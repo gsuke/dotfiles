@@ -21,10 +21,6 @@ c.keys = {
     { mods = "CTRL|SHIFT", key = "w",         action = act.CloseCurrentTab({ confirm = false }) },
     { mods = "CTRL|SHIFT", key = "UpArrow",   action = act.ScrollByLine(-2) },
     { mods = "CTRL|SHIFT", key = "DownArrow", action = act.ScrollByLine(2) },
-
-    -- WSLで~が入力されてしまう問題に対処
-    { mods = "",           key = "F13",       action = act.SendString("") },
-    { mods = "",           key = "F14",       action = act.SendString("") },
 }
 
 -- Linux
@@ -38,5 +34,7 @@ if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         { mods = "CTRL|SHIFT", key = "p", action = act.SpawnCommandInNewTab({ args = { "pwsh" } }) }
     )
 end
+
+-- c.debug_key_events = true -- デバッグ用
 
 return c
